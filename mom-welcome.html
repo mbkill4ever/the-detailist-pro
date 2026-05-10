@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#2d4a3e" />
+<title>Bienvenida, Mamá — Mirna's Home</title>
+<meta name="description" content="Una bienvenida con todo el amor para Mirna." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Dancing+Script:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --sage:#2d4a3e;
+    --sage-deep:#1f3429;
+    --cream:#f5efe2;
+    --cream-soft:#faf6ec;
+    --rose:#c98a8a;
+    --rose-deep:#a35d5d;
+    --rose-soft:#e7c4c4;
+    --gold:#caa55c;
+    --gold-soft:#e6cf95;
+    --ink:#2a2620;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:'Inter', system-ui, sans-serif;
+    background:
+      radial-gradient(1100px 700px at 50% -10%, #fff9eb 0%, transparent 60%),
+      radial-gradient(900px 600px at 90% 110%, #f3e4d6 0%, transparent 55%),
+      linear-gradient(180deg, var(--cream-soft) 0%, var(--cream) 100%);
+    color:var(--ink);
+    line-height:1.55;
+    min-height:100vh;
+    overflow-x:hidden;
+    position:relative;
+  }
+  .sparkle-layer{
+    position:fixed; inset:0; pointer-events:none; z-index:1;
+    background:
+      radial-gradient(1.2px 1.2px at 12% 22%, rgba(202,165,92,.55) 50%, transparent 100%),
+      radial-gradient(1.2px 1.2px at 78% 64%, rgba(202,165,92,.45) 50%, transparent 100%),
+      radial-gradient(1.4px 1.4px at 30% 80%, rgba(255,255,255,.6) 50%, transparent 100%),
+      radial-gradient(1.4px 1.4px at 65% 12%, rgba(255,255,255,.5) 50%, transparent 100%),
+      radial-gradient(1.4px 1.4px at 50% 50%, rgba(202,165,92,.35) 50%, transparent 100%);
+    animation: twinkle 6s ease-in-out infinite;
+    opacity:.85;
+  }
+  @keyframes twinkle{0%,100%{opacity:.45;}50%{opacity:.95;}}
+  .petals{position:fixed; inset:0; pointer-events:none; z-index:2; overflow:hidden;}
+  .petal{position:absolute;top:-40px;will-change: transform, opacity;opacity:0;animation-name: fall;animation-timing-function: linear;animation-iteration-count: infinite;}
+  @keyframes fall{0%{ transform: translate3d(0,-40px,0) rotate(0deg); opacity:0;}8%{ opacity:.9;}50%{ transform: translate3d(40px, 50vh, 0) rotate(180deg); opacity:.9;}100%{ transform: translate3d(-30px, 110vh, 0) rotate(360deg); opacity:0;}}
+  main{position:relative; z-index:3;max-width: 720px;margin: 0 auto;padding: clamp(2.2rem, 6vw, 4rem) 1.4rem clamp(2rem, 5vw, 3rem);text-align:center;min-height:100vh;display:flex; flex-direction:column; justify-content:space-between; gap:2.4rem;}
+  .ornament{display:flex; align-items:center; justify-content:center; gap:.8rem;opacity:0; animation: rise 1.1s .1s ease-out forwards;}
+  .ornament .dot{width:6px; height:6px; border-radius:50%;background: var(--gold);box-shadow: 0 0 12px rgba(202,165,92,.55);}
+  .ornament .line{width: 56px; height:1px; background:linear-gradient(90deg, transparent, var(--gold), transparent);}
+  .eyebrow{font-family:'Inter', sans-serif;text-transform: uppercase;letter-spacing: .35em;font-size: .72rem;color: var(--sage);margin-top:.5rem;opacity:0;animation: rise 1.1s .35s ease-out forwards;}
+  .hero{ display:flex; flex-direction:column; gap:1.1rem; align-items:center; }
+  h1{font-family:'Cormorant Garamond', serif;font-weight:500;font-size: clamp(2.6rem, 7vw, 4.4rem);line-height: 1.05;color: var(--sage-deep);letter-spacing:.005em;opacity:0;animation: rise 1.2s .55s cubic-bezier(.2,.7,.2,1) forwards;}
+  h1 em{font-style:italic;color: var(--rose-deep);background: linear-gradient(180deg, var(--rose-deep) 0%, var(--rose) 100%);-webkit-background-clip:text; background-clip:text;-webkit-text-fill-color: transparent;position:relative;}
+  h1 em::after{content:""; position:absolute; left:6%; right:6%; bottom:-.18em; height:1px;background:linear-gradient(90deg, transparent, var(--gold), transparent);transform: scaleX(0); transform-origin: center;animation: shimmer-line 1.4s 1.5s ease-out forwards;}
+  @keyframes shimmer-line{ to{ transform:scaleX(1);} }
+  .sub{font-family:'Cormorant Garamond', serif;font-style: italic;font-size: clamp(1.05rem, 2.6vw, 1.35rem);color: var(--ink);max-width: 30ch;opacity:0;animation: rise 1.2s .8s ease-out forwards;}
+  .sub strong{ font-weight:600; font-style:normal; color: var(--sage); }
+  @keyframes rise{from{ opacity:0; transform: translateY(18px) }to  { opacity:1; transform: translateY(0) }}
+  .heart-wrap{display:flex; flex-direction:column; align-items:center; gap:1.1rem;opacity:0; animation: rise 1.2s 1.05s ease-out forwards;}
+  .heart-btn{background: transparent; border:0; padding:0; cursor:pointer;position:relative;width: 180px; height: 180px;display:flex; align-items:center; justify-content:center;perspective: 800px;-webkit-tap-highlight-color: transparent;}
+  .heart{position:relative;width: 130px; height: 130px;transform-style: preserve-3d;transform: rotateX(8deg) rotateY(-6deg);animation: beat 1.6s ease-in-out infinite;filter: drop-shadow(0 18px 22px rgba(163,93,93,.35)) drop-shadow(0 2px 4px rgba(0,0,0,.18));transition: transform .35s ease;}
+  .heart::before, .heart::after{content:""; position:absolute; left:32px; top:0;width:64px; height:104px;background:radial-gradient(circle at 28% 28%, #ffd6d6 0%, var(--rose) 38%, var(--rose-deep) 100%);border-radius: 50px 50px 0 0;transform: rotate(-45deg);transform-origin: 0 100%;box-shadow:inset 4px 6px 10px rgba(255,255,255,.45),inset -6px -8px 14px rgba(120,40,40,.35);}
+  .heart::after{left:0;transform: rotate(45deg);transform-origin: 100% 100%;}
+  .heart-highlight{position:absolute; left:36%; top:20%;width:34px; height:18px;background: radial-gradient(closest-side, rgba(255,255,255,.85), rgba(255,255,255,0));transform: rotate(-25deg);pointer-events:none;}
+  .heart-glow{position:absolute; inset:-10%;border-radius:50%;background: radial-gradient(closest-side, rgba(201,138,138,.35), transparent 70%);filter: blur(8px);z-index:-1;animation: halo 2.4s ease-in-out infinite alternate;}
+  @keyframes halo{ from{opacity:.45;} to{opacity:.85;} }
+  @keyframes beat{0%,100%{ transform: rotateX(8deg) rotateY(-6deg) scale(1);}18%{ transform: rotateX(8deg) rotateY(-6deg) scale(1.06);}34%{ transform: rotateX(8deg) rotateY(-6deg) scale(.98);}50%{ transform: rotateX(8deg) rotateY(-6deg) scale(1.04);}}
+  .heart-btn:hover .heart{transform: rotateX(12deg) rotateY(-10deg) scale(1.06);filter: drop-shadow(0 22px 30px rgba(163,93,93,.45)) drop-shadow(0 2px 6px rgba(0,0,0,.25));}
+  .heart-btn:focus-visible{ outline:none; }
+  .heart-btn:focus-visible .heart{outline: 3px solid rgba(202,165,92,.7);outline-offset: 14px;border-radius: 50%;}
+  .heart-label{font-family:'Inter', sans-serif;font-weight:500; font-size:.92rem;letter-spacing:.22em; text-transform: uppercase;color: var(--sage-deep);padding: .85rem 1.6rem;border: 1px solid rgba(45,74,62,.25);border-radius: 999px;background: rgba(255,255,255,.55);backdrop-filter: blur(4px);transition: all .3s ease;}
+  .heart-btn:hover + .heart-label,.heart-btn:focus-visible + .heart-label{background: var(--sage-deep);color: var(--cream);border-color: var(--sage-deep);letter-spacing:.28em;}
+  .signature{font-family:'Dancing Script', cursive;font-size: clamp(1.3rem, 3vw, 1.7rem);color: var(--rose-deep);opacity:0;animation: rise 1.2s 1.4s ease-out forwards;margin-top: 1rem;}
+  .signature em{ color: var(--sage); font-style:normal; }
+  footer{font-family:'Inter', sans-serif;font-size:.7rem; letter-spacing:.18em; text-transform: uppercase;color: rgba(42,38,32,.5);opacity:0; animation: rise 1s 1.7s ease-out forwards;}
+  footer .h{ color: var(--rose-deep); }
+  .burst-particle{position:fixed; pointer-events:none; z-index:99;font-size: 24px;will-change: transform, opacity;animation: burstOut 1.1s ease-out forwards;}
+  @keyframes burstOut{0%{ transform: translate(-50%,-50%) scale(.3); opacity:1; }100%{ transform: translate(var(--dx), var(--dy)) scale(1.3) rotate(var(--r)); opacity:0; }}
+  @media (prefers-reduced-motion: reduce){.petals, .sparkle-layer{ display:none; }.heart{ animation:none; }.heart-glow{ animation:none; }h1, .sub, .eyebrow, .ornament, .heart-wrap, .signature, footer{opacity:1 !important; animation:none !important; transform:none !important;}h1 em::after{ transform:scaleX(1); animation:none; }}
+</style>
+</head>
+<body>
+  <div class="sparkle-layer" aria-hidden="true"></div>
+  <div class="petals" id="petals" aria-hidden="true"></div>
+  <main>
+    <section>
+      <div class="ornament" aria-hidden="true"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+      <p class="eyebrow">Mirna&rsquo;s Home</p>
+    </section>
+    <section class="hero">
+      <h1>Bienvenida a casa,<br/><em>Mam&aacute;</em></h1>
+      <p class="sub">Tu tienda. Tu sue&ntilde;o. <strong>Mirna&rsquo;s Home</strong> &mdash; hecho realidad. Con todo el amor, de tu hijo.</p>
+    </section>
+    <section class="heart-wrap">
+      <button class="heart-btn" id="heartBtn" aria-label="Entra a tu tienda">
+        <span class="heart-glow" aria-hidden="true"></span>
+        <span class="heart" aria-hidden="true"><span class="heart-highlight"></span></span>
+      </button>
+      <span class="heart-label">Entra a tu tienda</span>
+      <p class="signature">Con todo mi amor,<br/><em>tu hijo, Nova</em></p>
+    </section>
+    <footer>&copy; Mirna&rsquo;s Home &nbsp;<span class="h">&hearts;</span></footer>
+  </main>
+<script>
+(function(){
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const petalsRoot = document.getElementById('petals');
+  const SVGS = {
+    rose: `<svg viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg"><g><circle cx="12" cy="12" r="4" fill="#c98a8a"/><path d="M12 4c2 2 2 5 0 7-2-2-2-5 0-7z" fill="#e7c4c4"/><path d="M20 12c-2 2-5 2-7 0 2-2 5-2 7 0z" fill="#e7c4c4"/><path d="M12 20c-2-2-2-5 0-7 2 2 2 5 0 7z" fill="#d8a4a4"/><path d="M4 12c2-2 5-2 7 0-2 2-5 2-7 0z" fill="#d8a4a4"/><circle cx="12" cy="12" r="1.6" fill="#a35d5d"/></g></svg>`,
+    daisy: `<svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg"><g><ellipse cx="12" cy="4" rx="2.4" ry="4.2" fill="#fdfaf0"/><ellipse cx="12" cy="20" rx="2.4" ry="4.2" fill="#fdfaf0"/><ellipse cx="4" cy="12" rx="4.2" ry="2.4" fill="#fdfaf0"/><ellipse cx="20" cy="12" rx="4.2" ry="2.4" fill="#fdfaf0"/><ellipse cx="6.5" cy="6.5" rx="3" ry="2" transform="rotate(-45 6.5 6.5)" fill="#fdfaf0"/><ellipse cx="17.5" cy="6.5" rx="3" ry="2" transform="rotate(45 17.5 6.5)" fill="#fdfaf0"/><ellipse cx="6.5" cy="17.5" rx="3" ry="2" transform="rotate(45 6.5 17.5)" fill="#fdfaf0"/><ellipse cx="17.5" cy="17.5" rx="3" ry="2" transform="rotate(-45 17.5 17.5)" fill="#fdfaf0"/><circle cx="12" cy="12" r="3" fill="#caa55c"/></g></svg>`,
+    heart: `<svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M12 21s-7-4.6-9.3-9C1.1 8.7 3 5 6.5 5c2 0 3.4 1.1 4.1 2.3h2.8C14.1 6.1 15.5 5 17.5 5c3.5 0 5.4 3.7 3.8 7-2.3 4.4-9.3 9-9.3 9z" fill="url(#h-g)"/><defs><linearGradient id="h-g" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#e7c4c4"/><stop offset="1" stop-color="#a35d5d"/></linearGradient></defs></svg>`,
+    leaf: `<svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M3 21c0-9 6-15 18-18-2 12-9 18-18 18z" fill="#7a9888"/><path d="M5 19c6-4 10-9 14-15" stroke="#2d4a3e" stroke-width="1" fill="none"/></svg>`
+  };
+  const TYPES = ['rose','daisy','heart','leaf','heart','rose','daisy'];
+  function spawnPetal(){
+    if(reduced) return;
+    const el = document.createElement('div');
+    el.className = 'petal';
+    const type = TYPES[Math.floor(Math.random()*TYPES.length)];
+    el.innerHTML = SVGS[type];
+    const size = 14 + Math.random()*26;
+    el.style.width = size + 'px';
+    el.style.height = size + 'px';
+    el.style.left = (Math.random()*100) + 'vw';
+    const dur = 10 + Math.random()*14;
+    el.style.animationDuration = dur + 's';
+    el.style.animationDelay = (-Math.random()*dur) + 's';
+    el.querySelector('svg').style.transform = 'rotate(' + (Math.random()*360) + 'deg)';
+    petalsRoot.appendChild(el);
+    setTimeout(()=>el.remove(), dur*1000 + 500);
+  }
+  if(!reduced){ for(let i=0;i<22;i++) spawnPetal(); setInterval(spawnPetal, 700); }
+  const btn = document.getElementById('heartBtn');
+  const heart = btn.querySelector('.heart');
+  if(!reduced){
+    btn.addEventListener('mousemove', (e)=>{
+      const r = btn.getBoundingClientRect();
+      const x = (e.clientX - r.left)/r.width  - .5;
+      const y = (e.clientY - r.top )/r.height - .5;
+      heart.style.transform = `rotateX(${ -y*16 + 8 }deg) rotateY(${ x*22 - 6 }deg) scale(1.05)`;
+    });
+    btn.addEventListener('mouseleave', ()=>{ heart.style.transform = ''; });
+  }
+  function burst(x, y){
+    const glyphs = ['♥','✿','❀','♥','✦','❣','✿'];
+    const count = reduced ? 0 : 16;
+    for(let i=0;i<count;i++){
+      const p = document.createElement('span');
+      p.className = 'burst-particle';
+      p.textContent = glyphs[Math.floor(Math.random()*glyphs.length)];
+      p.style.left = x + 'px';
+      p.style.top  = y + 'px';
+      p.style.color = ['#a35d5d','#c98a8a','#caa55c','#2d4a3e'][Math.floor(Math.random()*4)];
+      const angle = (i / count) * Math.PI * 2 + Math.random()*.5;
+      const dist = 80 + Math.random()*140;
+      p.style.setProperty('--dx', Math.cos(angle)*dist + 'px');
+      p.style.setProperty('--dy', Math.sin(angle)*dist + 'px');
+      p.style.setProperty('--r', (Math.random()*360) + 'deg');
+      document.body.appendChild(p);
+      setTimeout(()=>p.remove(), 1200);
+    }
+  }
+  btn.addEventListener('click', (e)=>{
+    e.preventDefault();
+    const r = btn.getBoundingClientRect();
+    burst(r.left + r.width/2, r.top + r.height/2);
+    setTimeout(()=>{ window.location.href = 'https://www.mirnashome.com'; }, reduced ? 0 : 650);
+  });
+})();
+</script>
+</body>
+</html>
